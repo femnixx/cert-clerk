@@ -9,11 +9,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <meta property="og:description" content="Stop chasing vendor COIs in spreadsheets. Automate tracking, gap detection, and expiry reminders." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://certclerk.pages.dev/" />
+    <meta property="og:image" content="https://certclerk.pages.dev/og-image.png" />
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"Organization","name":"CertClerk","url":"https://certclerk.pages.dev"}
+      {"@context":"https://schema.org","@type":"Organization","name":"CertClerk","url":"https://certclerk.pages.dev","description":"Track vendor insurance certificates, flag gaps, automate expiry reminders."}
     </script>
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"CertClerk","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"79.00","priceCurrency":"USD"}}
+      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"CertClerk","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"79.00","priceCurrency":"USD","priceValidUntil":"2027-12-31"},"description":"COI tracking for small property managers. Vendor magic links, gap detection, agent-chase reminders."}
     </script>
   </Fragment>
 
@@ -24,8 +25,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <h1>Stop chasing vendor insurance certificates in spreadsheets.</h1>
         <p>CertClerk tracks vendor and subcontractor insurance certificates. Vendors upload via magic link with no account. You see gaps, get reminders, and stay on top of expirations.</p>
         <div class="hero-actions">
-          <a class="btn" href="#audit">Request a free COI gap audit</a>
-          <a class="btn btn-secondary" href="#pricing">See pricing</a>
+          <a class="btn" href="#audit" data-track="cta_click">Request a free COI gap audit</a>
+          <a class="btn btn-secondary" href="#pricing" data-track="cta_click">See pricing</a>
         </div>
         <div class="trust-list">
           <div>• Built for small property managers tracking 10-150 vendors</div>
@@ -33,7 +34,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div>• We do not verify coverage with insurers.</div>
         </div>
       </div>
-      <div class="mock-card" aria-label="Mock gap report dashboard">
+      <div class="mock-card" aria-label="Mock gap report dashboard showing vendor compliance status">
         <div class="mock-header">
           <div class="mock-title">Gap Report</div>
           <div class="mock-title">Status</div>
@@ -160,7 +161,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div>✓ Reminders (vendor + agent)</div>
             <div>✓ Dashboard</div>
           </div>
-          <a class="btn btn-secondary" href="#audit">Start free audit</a>
+          <a class="btn btn-secondary" href="#audit" data-track="pricing_view">Start free audit</a>
         </article>
         <article class="pricing-card highlight">
           <div>
@@ -175,7 +176,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div>✓ Evidence view (field→PDF)</div>
             <div>✓ Priority processing</div>
           </div>
-          <a class="btn" href="#audit">Start free audit</a>
+          <a class="btn" href="#audit" data-track="pricing_view">Start free audit</a>
         </article>
         <article class="pricing-card">
           <div>
@@ -189,7 +190,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div>✓ Expanded history</div>
             <div>✓ Priority support</div>
           </div>
-          <a class="btn btn-secondary" href="#audit">Start free audit</a>
+          <a class="btn btn-secondary" href="#audit" data-track="pricing_view">Start free audit</a>
         </article>
       </div>
       <p style="margin-top:1rem; color: var(--text-muted)">Onboarding Concierge: $199 one-time (optional). Annual billing may be available [VERIFY].</p>
@@ -201,16 +202,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>Get a free COI gap audit in 24 hours</h2>
       <p>What you send: up to ~10-20 COI PDFs or a link, vendor list, and your requirements (or we'll suggest a template). What you get: gap report, expirations coming due, specific gaps called out, recommendations. No obligation.</p>
       <p><strong>Privacy:</strong> We only use files for your gap report. Not used to train public models. We do not verify coverage with insurers.</p>
-      <form class="form" method="post" action="/api/audit-request" enctype="multipart/form-data" novalidate>
+      <form id="auditForm" class="form" method="post" action="/api/audit-request" enctype="multipart/form-data" novalidate>
         <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="form-grid">
           <div class="form-field">
             <label for="name">Name</label>
-            <input id="name" name="name" required />
+            <input id="name" name="name" required autocomplete="name" />
           </div>
           <div class="form-field">
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" required />
+            <input id="email" name="email" type="email" required autocomplete="email" />
           </div>
           <div class="form-field">
             <label for="company">Company/Property Management Company</label>
@@ -244,7 +245,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <input name="shareLink" placeholder="Or paste a share link" />
           </div>
         </div>
-        <button class="btn" type="submit">Get my free gap report</button>
+        <button class="btn" type="submit" data-track="audit_form_submit">Get my free gap report</button>
+        <p id="formMsg" aria-live="polite"></p>
       </form>
     </div>
   </section>
@@ -272,4 +274,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
+
+  <script>
+    const form = document.getElementById('auditForm');
+    const msg = document.getElementById('formMsg');
+    if (form) {
+      form.addEventListener('focusin', () => {
+        if (typeof window !== 'undefined') console.log('audit_form_start');
+      }, { once: true });
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        msg.textContent = 'Submitting...';
+        const fd = new FormData(form);
+        try {
+          const res = await fetch(form.action, { method: 'POST', body: fd });
+          const data = await res.json();
+          if (res.ok) {
+            msg.textContent = 'Request received. We will email you within 24 hours.';
+            form.reset();
+          } else {
+            msg.textContent = data.error || 'Something went wrong.';
+          }
+        } catch (err) {
+          msg.textContent = 'Network error. Please try again.';
+        }
+      });
+    }
+  </script>
 </BaseLayout>
