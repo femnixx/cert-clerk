@@ -22,3 +22,8 @@
 | 2026-11-03 | Storage: Cloudflare R2 for file uploads | Free tier generous, zero egress. |
 | 2026-11-03 | Email: Brevo for confirmations | Free tier 300/day as specified. |
 | 2026-11-03 | Analytics: Cloudflare Web Analytics | Privacy-friendly, no cookies. |
+| 2026-11-03 | App framework: React + Vite + TypeScript + Tailwind CSS | Lightweight enough, great DX, easy code-splitting, good ecosystem. TanStack Query for data fetching, react-hook-form + zod for forms. |
+| 2026-11-03 | PDF viewing: pdf.js (self-hosted) | Needed for evidence view; self-host worker to avoid CDN dependencies. |
+| 2026-11-03 | Status indicators: icon + text, never color-only | Accessibility requirement - WCAG AA. |
+| 2026-11-03 | Auth: magic links (no passwords) | Matches product requirements, simpler UX. |
+| 2026-11-03 | Vendor portal: account-less via magic links | Core differentiator per product brief. |
