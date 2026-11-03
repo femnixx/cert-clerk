@@ -1,0 +1,275 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout>
+  <Fragment slot="head">
+    <title>Track vendor COIs | CertClerk</title>
+    <meta name="description" content="Track vendor insurance COIs. Flag gaps, chase renewals. No vendor accounts." />
+    <meta property="og:title" content="CertClerk - Track Vendor Insurance Certificates" />
+    <meta property="og:description" content="Stop chasing vendor COIs in spreadsheets. Automate tracking, gap detection, and expiry reminders." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://certclerk.pages.dev/" />
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"Organization","name":"CertClerk","url":"https://certclerk.pages.dev"}
+    </script>
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"CertClerk","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"79.00","priceCurrency":"USD"}}
+    </script>
+  </Fragment>
+
+  <section class="section">
+    <div class="container hero">
+      <div class="hero-copy">
+        <p class="eyebrow">COI tracking for small property managers</p>
+        <h1>Stop chasing vendor insurance certificates in spreadsheets.</h1>
+        <p>CertClerk tracks vendor and subcontractor insurance certificates. Vendors upload via magic link with no account. You see gaps, get reminders, and stay on top of expirations.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#audit">Request a free COI gap audit</a>
+          <a class="btn btn-secondary" href="#pricing">See pricing</a>
+        </div>
+        <div class="trust-list">
+          <div>• Built for small property managers tracking 10-150 vendors</div>
+          <div>• US-focused, ACORD 25 first</div>
+          <div>• We do not verify coverage with insurers.</div>
+        </div>
+      </div>
+      <div class="mock-card" aria-label="Mock gap report dashboard">
+        <div class="mock-header">
+          <div class="mock-title">Gap Report</div>
+          <div class="mock-title">Status</div>
+        </div>
+        <div class="mock-body">
+          <div class="mock-row">
+            <div>Acme Property Services</div>
+            <div><span class="mock-badge">Compliant</span></div>
+            <div>—</div>
+          </div>
+          <div class="mock-row">
+            <div>Riverbend Landscaping</div>
+            <div><span class="mock-badge warn">Expiring in 30 days</span></div>
+            <div>Nov 28, 2026</div>
+          </div>
+          <div class="mock-row">
+            <div>Crestline Electric</div>
+            <div><span class="mock-badge warn">Missing</span></div>
+            <div>Missing GL; Auto limit low</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>The spreadsheet and a lot of nagging</h2>
+      <div class="grid-cards">
+        <article class="card">
+          <h3>Spreadsheets break down.</h3>
+          <p>Tracking COIs across dozens of vendors in a spreadsheet is error-prone and hard to keep current.</p>
+        </article>
+        <article class="card">
+          <h3>Too much nagging.</h3>
+          <p>You end up emailing and calling vendors repeatedly to get updated certificates before they expire.</p>
+        </article>
+        <article class="card">
+          <h3>Gaps hide in the details.</h3>
+          <p>It's hard to know at a glance which vendors are non-compliant or what's actually missing from a certificate.</p>
+        </article>
+        <article class="card">
+          <h3>Expirations sneak up.</h3>
+          <p>Without a system, policies expire unnoticed and create liability exposure.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="section">
+    <div class="container">
+      <h2>How it works</h2>
+      <div class="steps">
+        <article class="step">
+          <div class="step-num">01</div>
+          <h3>Upload or forward</h3>
+          <p>Add vendors or have them upload via magic link (no account). Bulk import existing PDFs.</p>
+        </article>
+        <article class="step">
+          <div class="step-num">02</div>
+          <h3>Extract</h3>
+          <p>AI extracts coverage types, limits, policy dates, and additional-insured status from ACORD 25 certificates.</p>
+        </article>
+        <article class="step">
+          <div class="step-num">03</div>
+          <h3>Check against your requirements</h3>
+          <p>Compare against your template. Gaps are flagged clearly with what needs to be fixed.</p>
+        </article>
+        <article class="step">
+          <div class="step-num">04</div>
+          <h3>Chase automatically</h3>
+          <p>Reminders go to vendors and their insurance agents. Low-confidence extractions go to review queue.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section section-alt">
+    <div class="container">
+      <h2>Features</h2>
+      <div class="feature-grid">
+        <article class="feature">
+          <h3>Set requirements once</h3>
+          <p>Define coverage requirements in a reusable template. Apply across all vendors and see compliance at a glance.</p>
+        </article>
+        <article class="feature">
+          <h3>Vendors upload without creating an account</h3>
+          <p>Magic link lets vendors upload their COI PDF with no registration or password.</p>
+        </article>
+        <article class="feature">
+          <h3>See where every extracted value comes from</h3>
+          <p>Click any extracted field to see it highlighted in the original PDF for auditability.</p>
+        </article>
+        <article class="feature">
+          <h3>Human review when the AI isn't sure</h3>
+          <p>Uncertain extractions go to a review queue - see PDF side-by-side and approve, edit, or request re-upload.</p>
+        </article>
+        <article class="feature">
+          <h3>Reminders to vendors and their agents</h3>
+          <p>Automatic reminders to both parties before expiration, with full history.</p>
+        </article>
+        <article class="feature">
+          <h3>Import existing COIs, get a gap report fast</h3>
+          <p>Bulk import up to ~200 PDFs. Get organized results quickly.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section">
+    <div class="container">
+      <h2>Simple pricing</h2>
+      <div class="pricing-grid">
+        <article class="pricing-card">
+          <div>
+            <h3>Starter</h3>
+            <div class="pricing-price">$79<span style="font-size:1rem; color: var(--text-muted)">/mo</span></div>
+            <p>≤25 vendors</p>
+          </div>
+          <div class="pricing-list">
+            <div>✓ Requirement templates</div>
+            <div>✓ Magic-link uploads</div>
+            <div>✓ Extraction & gap detection</div>
+            <div>✓ Reminders (vendor + agent)</div>
+            <div>✓ Dashboard</div>
+          </div>
+          <a class="btn btn-secondary" href="#audit">Start free audit</a>
+        </article>
+        <article class="pricing-card highlight">
+          <div>
+            <h3>Pro</h3>
+            <div class="pricing-price">$149<span style="font-size:1rem; color: var(--text-muted)">/mo</span></div>
+            <p>≤100 vendors</p>
+          </div>
+          <div class="pricing-list">
+            <div>✓ Everything in Starter</div>
+            <div>✓ Bulk import</div>
+            <div>✓ Human review queue</div>
+            <div>✓ Evidence view (field→PDF)</div>
+            <div>✓ Priority processing</div>
+          </div>
+          <a class="btn" href="#audit">Start free audit</a>
+        </article>
+        <article class="pricing-card">
+          <div>
+            <h3>Portfolio</h3>
+            <div class="pricing-price">$299<span style="font-size:1rem; color: var(--text-muted)">/mo</span></div>
+            <p>≤300 vendors</p>
+          </div>
+          <div class="pricing-list">
+            <div>✓ Everything in Pro</div>
+            <div>✓ Higher limits</div>
+            <div>✓ Expanded history</div>
+            <div>✓ Priority support</div>
+          </div>
+          <a class="btn btn-secondary" href="#audit">Start free audit</a>
+        </article>
+      </div>
+      <p style="margin-top:1rem; color: var(--text-muted)">Onboarding Concierge: $199 one-time (optional). Annual billing may be available [VERIFY].</p>
+    </div>
+  </section>
+
+  <section id="audit" class="section section-alt">
+    <div class="container">
+      <h2>Get a free COI gap audit in 24 hours</h2>
+      <p>What you send: up to ~10-20 COI PDFs or a link, vendor list, and your requirements (or we'll suggest a template). What you get: gap report, expirations coming due, specific gaps called out, recommendations. No obligation.</p>
+      <p><strong>Privacy:</strong> We only use files for your gap report. Not used to train public models. We do not verify coverage with insurers.</p>
+      <form class="form" method="post" action="/api/audit-request" enctype="multipart/form-data" novalidate>
+        <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input id="name" name="name" required />
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div class="form-field">
+            <label for="company">Company/Property Management Company</label>
+            <input id="company" name="company" required />
+          </div>
+          <div class="form-field">
+            <label for="vendorCount"># Vendors</label>
+            <select id="vendorCount" name="vendorCount" required>
+              <option value="">Select</option>
+              <option>1-10</option>
+              <option>11-25</option>
+              <option>26-50</option>
+              <option>51-100</option>
+              <option>101-150</option>
+              <option>150+</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="tracking">Current tracking method</label>
+            <select id="tracking" name="tracking" required>
+              <option value="">Select</option>
+              <option>Spreadsheet</option>
+              <option>Shared drive/email</option>
+              <option>Existing tool (name)</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="files">Upload PDFs or paste link (optional)</label>
+            <input id="files" name="files" type="file" accept=".pdf,.png,.jpg,.jpeg,.zip" multiple />
+            <input name="shareLink" placeholder="Or paste a share link" />
+          </div>
+        </div>
+        <button class="btn" type="submit">Get my free gap report</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="feature-grid">
+        <article class="feature">
+          <h3>Do you verify coverage with insurers?</h3>
+          <p>No. We do not verify coverage with insurers. We extract and check information from the certificate document against your requirements.</p>
+        </article>
+        <article class="feature">
+          <h3>What forms do you support?</h3>
+          <p>ACORD 25 first, US only.</p>
+        </article>
+        <article class="feature">
+          <h3>What happens when extraction is unsure?</h3>
+          <p>Goes to the human review queue. You'll see the PDF side-by-side and can approve, edit, or request re-upload.</p>
+        </article>
+        <article class="feature">
+          <h3>Can I cancel anytime?</h3>
+          <p>Yes, you can cancel anytime. Access remains until the end of your billing period.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

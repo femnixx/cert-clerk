@@ -1,0 +1,12 @@
+name = "certclerk"
+compatibility_date = "2024-11-03"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "certclerk_audit"
+database_id = "PLACEHOLDER_D1_ID"
+
+[[r2_buckets]]
+binding = "UPLOADS"
+bucket_name = "certclerk-uploads"
+bucket_id = "PLACEHOLDER_R2_ID"

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://certclerk.pages.dev/sitemap.xml

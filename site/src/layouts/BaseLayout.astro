@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="canonical" href={Astro.url} />
+    <meta name="robots" content="index, follow" />
+    <slot name="head" />
+    <!-- Privacy-friendly analytics placeholder (Cloudflare Web Analytics) -->
+    <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "PLACEHOLDER"}'></script> -->
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="header">
+      <div class="container header-inner">
+        <a class="logo" href="/">CertClerk</a>
+        <nav class="nav" aria-label="Primary">
+          <a class="nav-link" href="#how-it-works">How it works</a>
+          <a class="nav-link" href="#features">Features</a>
+          <a class="nav-link" href="#pricing">Pricing</a>
+          <a class="nav-link" href="#faq">FAQ</a>
+          <a class="btn" href="#audit">Request a free COI gap audit</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <div class="logo">CertClerk</div>
+          <p class="disclaimer">CertClerk is a document tracking tool. We do not verify coverage with insurers or provide legal advice. US only, ACORD 25 first.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/security">Security</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
