@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Button, Input } from '../components/ui'
-import { api } from '../lib/api'
+import { Button, Input } from '../../components/ui'
+import { api } from '../../lib/api'
 
 export default function MagicLinkRequest() {
   const [email, setEmail] = useState('')
